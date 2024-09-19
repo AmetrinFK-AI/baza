@@ -1,0 +1,283 @@
+/*Обнуление*/
+*{padding:0;margin:0;border:0;}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+/*--------------------*/
+.wrapper {
+    min-height: 100%;
+	overflow: hidden;
+    font-family: Montserrat;
+}
+.content {
+    flex: 1 1 auto;
+}
+header{
+    padding: 20px 0 0 0;
+}
+
+/* Стилі для картки */
+/* Стилі для картки */
+.card {
+    padding: 20px;
+    margin: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Стилі для модального вікна */
+.modal {
+    display: none; /* Сховане за замовчуванням */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Чорний з прозорістю */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Центрування вертикально */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Вужче модальне вікно */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Стиль заголовку модального вікна */
+.modal-content h2 {
+    font-size: 30px; /* Більший заголовок */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стиль для закриття модального вікна */
+.close-btn {
+    color: #fff;
+    background-color: #f44336; /* Червоний колір */
+    border-radius: 50%;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    background-color: #e60000; /* Темніший червоний при наведенні */
+}
+
+/* Стилі для контенту в модальному вікні */
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin-bottom: 25px;
+}
+
+.modal-content h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.modal-content a {
+    color: red;
+    font-size: 18px;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+
+.logo img {
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+.about{
+    font-style: italic;
+    margin: 0 20px;
+    border-radius: 100px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    background: #e30000;
+    padding: 20px 20px;
+}
+.about h1{
+    font-size: 32px;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+.about p{
+    padding-bottom: 20px;
+    font-size: 24px;
+}
+.instrument{
+    padding: 50px 0 50px 0;
+}
+.title{
+    font-style: italic;
+    text-align: center;
+    font-size: 32px;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+.card_wrapper{
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 60px;
+}
+.card{
+    font-style: italic;
+    width: 300px;
+    height: 200px;
+    font-size: 28px;
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.card:hover{
+    width: 330px;
+    height: 230px;
+    font-size: 30px;
+    border: 2px solid red;
+    transition:
+    width 1s,
+    height 1s,
+    background-color 1s,
+    transform 1s;
+}
+footer{
+    font-style: italic;
+    margin: 0 auto;
+    width: 1100px;
+    margin-bottom: 35px;
+    background: #e30000;
+    text-align: center;
+}
+footer a{
+    color: white;
+    font-size: 38px;
+    text-decoration: none;
+}
+.footer_wrapper{
+    padding: 50px 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Стилі для нового модального вікна */
+.quiz-modal, .modal {
+    display: none; /* Сховане за замовчуванням */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Чорний з прозорістю */
+}
+
+.quiz-modal-content, .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Стиль заголовку модального вікна */
+.quiz-modal-content h2, .modal-content h2 {
+    font-size: 30px; /* Більший заголовок */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стиль для закриття модального вікна */
+.quiz-close-btn, .close-btn {
+    color: #fff;
+    background-color: #f44336; /* Червоний колір */
+    border-radius: 50%;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+.quiz-close-btn:hover, .quiz-close-btn:focus,
+.close-btn:hover, .close-btn:focus {
+    background-color: #e60000; /* Темніший червоний при наведенні */
+}
+
+/* Стилі для контенту в модальному вікні */
+.quiz-modal-content p, .modal-content p {
+    margin: 10px 0;
+}
+
+.quiz-modal-content a, .modal-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px; /* Расположите кнопку на 20px от нижнего края */
+    right: 20px; /* Расположите кнопку на 20px от правого края */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Чтобы кнопка была поверх остальных элементов */
+}
+
+.back-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+
+

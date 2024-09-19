@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Керiвники</title>
+    <link rel="stylesheet" href="/css/deparment.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Керiвники</h1>
+            <button onclick="goBack()" class="back-button">Назад</button>
+        </header>
+        <main>
+            <section class="prompts">
+                <h2>Промпти</h2>
+                <ul id="promptList"></ul>
+            </section>
+
+            <section class="instruments">
+                <h2>Інструменти</h2>
+                <a href=""><div id="instrumentList" class="card-container">
+                    <!-- Карточки будут динамически добавляться сюда -->
+                </div></a>
+            </section>
+
+            <section class="resources">
+                <h2>Корисні ресурси</h2>
+                <ul id="resourceList"></ul>
+            </section>
+        </main>
+    </div>
+    <script src="../js/management.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = "../index.html";  // Возвращение на главную страницу
+        }
+    </script>
+</body>
+</html>

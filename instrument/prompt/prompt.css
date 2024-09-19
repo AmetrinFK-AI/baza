@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#d4e4ff;
+}
+header {
+    margin: 50px 0;
+}
+.logo {
+    text-align: center;
+}
+pre {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.highlight {
+    font-weight: bold;
+}
+.tabs-container {
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+.tab-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    position: relative;
+}
+.tab-link:hover {
+    background-color: #555;
+}
+.tab-content {
+    padding: 20px;
+    display: none;
+}
+.tab-content li {
+    padding-top: 20px;
+    font-size: 20px;
+    list-style-type: none;
+}
+.tab-content.active {
+    display: block;
+}
+.back-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+.back-button:hover {
+    background-color: #555;
+}
+.prompt-title {
+    background-color: #ff242f;
+    color: white;
+    padding: 5px 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    border: none;
+    width: auto;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 30px;
+}
+.prompt-title:hover {
+    background-color: #ff000d;
+}
+.prompt-text {
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 3px solid #ff242f;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+/* Markdown styles */
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+p {
+    margin: 10px 0;
+}
+ul, ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 10px;
+}
+blockquote {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #eee;
+    border-left: 5px solid #ccc;
+}

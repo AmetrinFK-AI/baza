@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt запити для ChatGPT</title>
+    <link rel="stylesheet" href="prompt.css">
+    <!-- Подключение библиотеки marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Prompt запити для ChatGPT</h1>
+            <button onclick="goBack()" class="back-button">Назад</button>
+        </div>
+    </header>
+
+    <div class="tabs-container">
+        <div class="tabs" id="tabContainer">
+            <!-- Category buttons will be added dynamically -->
+        </div>
+
+        <div id="contentContainer">
+            <!-- Category content will be added dynamically -->
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "../index.html"; // Return to the main page
+        }
+
+        // Load prompts from JSON file
+        fetch('/data/prompts.json')
+            .then(response => response.json())
+            .then(prompts => {
+                const categories = {};
+
+                // Organize prompts by category
+                prompts.forEach(prompt => {
+                    if (!categories[prompt.category]) {
+                        categories[prompt.category] = [];
+                    }
+                    categories[prompt.category].push(prompt);
+                });
+
+                const tabContainer = document.getElementById('tabContainer');
+                const contentContainer = document.getElementById('contentContainer');
+
+                // Create tabs and content for each category
+                Object.keys(categories).forEach((category, index) => {
+                    const tabButton = document.createElement('button');
+                    tabButton.className = 'tab-link';
+                    tabButton.textContent = category;
+                    tabButton.onclick = () => openCategory(event, `category-${index}`);
+                    tabContainer.appendChild(tabButton);
+
+                    const tabContent = document.createElement('div');
+                    tabContent.id = `category-${index}`;
+                    tabContent.className = 'tab-content';
+
+                    const categoryHeader = document.createElement('h2');
+                    categoryHeader.textContent = category;
+                    tabContent.appendChild(categoryHeader);
+
+                    categories[category].forEach((prompt, promptIndex) => {
+                        const promptElement = document.createElement('div');
+                        promptElement.className = 'prompt';
+
+                        const title = document.createElement('button');
+                        title.textContent = prompt.name;
+                        title.className = 'prompt-title';
+                        title.onclick = () => togglePromptContent(promptElement);
+
+                        const text = document.createElement('div');
+                        text.className = 'prompt-text markdown-content';
+                        text.innerHTML = marked.parse(prompt.text); // Convert text to HTML using marked
+                        text.style.display = promptIndex === 0 ? 'block' : 'none'; // Open the first prompt by default
+
+                        promptElement.appendChild(title);
+                        promptElement.appendChild(text);
+                        tabContent.appendChild(promptElement);
+                    });
+
+                    contentContainer.appendChild(tabContent);
+                });
+
+                // Open the first tab by default
+                document.querySelector('.tab-link').click();
+            })
+            .catch(error => console.error('Error:', error));
+
+        function openCategory(evt, categoryName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(categoryName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function togglePromptContent(promptElement) {
+            const text = promptElement.querySelector('.prompt-text');
+            text.style.display = text.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін панель</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .modal {
+            display: none; /* Скрываем модальное окно по умолчанию */
+            position: fixed;
+            z-index: 1000; /* Позиция поверх всех элементов */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1.5); /* Полупрозрачный фон */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Авторизація</h2>
+            <input type="text" id="username" placeholder="Логін"><br><br>
+            <input type="password" id="password" placeholder="Пароль"><br><br>
+            <button id="loginButton">Увійти</button>
+            <p id="errorMessage" style="color:red; display:none;">Неправильні дані. Спробуйте ще раз.</p>
+        </div>
+    </div>
+    <div>
+        <h1>Адмін-панель для управління промптами, ресурсами та картками</h1>
+        <div class="block_border">
+        <!-- Форма для добавления/редактирования промптів -->
+            <form id="promptForm">
+                <h2>Додати/Редагувати промпт</h2>
+                <p>Утримуйте клавішу Ctrl (Cmd на Mac), щоб вибрати кілька відділів.</p>
+
+                <input type="hidden" id="editIndex" value="-1">
+                <label for="promptName">Назва промпта:</label>
+                <input type="text" id="promptName" name="promptName" required>
+
+                <label for="promptText">Текст промпта:</label>
+                <textarea id="promptText" name="promptText" required></textarea>
+
+                <label for="promptCategory">Категорія:</label>
+                <select id="promptCategory" name="promptCategory" required>
+                    <option value="Робота з клієнтами">Робота з клієнтами</option>
+                    <option value="Робота з постачальниками">Робота з постачальниками</option>
+                    <option value="Робота з Фармринком">Робота з Фармринком</option>
+                    <option value="Робота з продуктом">Робота з продуктом</option>
+                    <option value="Робота з персоналом і особистий ріст">Робота з персоналом і особистий ріст</option>
+                    <option value="Робота з ChatGPT">Робота з ChatGPT</option>
+                    <option value="Промти для IT">Промти для IT</option>
+                    <option value="Промти для Moodle">Промти для Moodle</option>
+                </select>
+
+                <label for="promptDepartments">Відділи:</label>
+                <select id="promptDepartments" name="promptDepartments" multiple required>
+                    <option value="all">Всі відділи</option>
+                    <option value="accounting">Бухгалтерія</option>
+                    <option value="budget">Бюджетний відділ</option>
+                    <option value="sales">Відділ Продажу</option>
+                    <option value="pharmacy">Фарм Отдел</option>
+                    <option value="marketing">Маркетинг</option>
+                    <option value="external_service">Зовнішня служба</option>
+                    <option value="procurement">Відділ закупівель</option>
+                    <option value="finance">Фінансовий відділ</option>
+                    <option value="it">Відділ IT</option>
+                    <option value="hr">Відділ персоналу</option>
+                    <option value="quality_control">Відділ контролю якості</option>
+                    <option value="security">Відділ економ безпеки</option>
+                    <option value="management">Керівники</option>
+                </select>
+
+                <button type="submit">Зберегти промпт</button>
+            </form>
+            <div class="info">
+                <h2>Список промптів</h2>
+                <ul id="promptList"></ul> 
+            </div><!-- Контейнер для списка промптів -->
+        </div>
+        <!-- Форма для добавления/редактирования ресурсов -->
+        <div class="block_border">
+            <form id="resourceForm">
+                <h2>Додати/Редагувати ресурс</h2>
+                <p>Утримуйте клавішу Ctrl (Cmd на Mac), щоб вибрати кілька відділів.</p>
+
+                <label for="resourceName">Назва ресурсу:</label>
+                <input type="text" id="resourceName" name="resourceName" required>
+
+                <label for="resourceDescription">Опис ресурсу:</label>
+                <textarea id="resourceDescription" name="resourceDescription" required></textarea>
+
+                <label for="resourceLink">Посилання на ресурс:</label>
+                <input type="url" id="resourceLink" name="resourceLink" required>
+
+                <label for="resourceDepartments">Відділи:</label>
+                <select id="resourceDepartments" name="resourceDepartments" multiple required>
+                    <option value="all">Всі відділи</option>
+                    <option value="accounting">Бухгалтерія</option>
+                    <option value="budget">Бюджетний відділ</option>
+                    <option value="sales">Відділ Продажу</option>
+                    <option value="pharmacy">Фарм Отдел</option>
+                    <option value="marketing">Маркетинг</option>
+                    <option value="external_service">Зовнішня служба</option>
+                    <option value="procurement">Відділ закупівель</option>
+                    <option value="finance">Фінансовий відділ</option>
+                    <option value="it">Відділ IT</option>
+                    <option value="hr">Відділ персоналу</option>
+                    <option value="quality_control">Відділ контролю якості</option>
+                    <option value="security">Відділ економ безпеки</option>
+                    <option value="management">Керівники</option>
+                </select>
+
+                <button type="submit">Зберегти ресурс</button>
+            </form>
+            <div class="info">
+                <h2>Список ресурсів</h2>
+                <ul id="resourceList"></ul> <!-- Контейнер для списка ресурсов -->
+            </div>
+        </div>
+        <!-- Форма для добавления/редактирования карточек -->
+        <div class="block_border">
+            <form id="cardForm">
+                <h2>Додати/Редагувати картку</h2>
+                <p>Утримуйте клавішу Ctrl (Cmd на Mac), щоб вибрати кілька відділів.</p>
+                <input type="hidden" id="editIndex" value="-1">
+                <label for="cardName">Назва картки:</label>
+                <input type="text" id="cardName" name="cardName" required>
+
+                <label for="cardLink">Посилання на картку:</label>
+                <input type="url" id="cardLink" name="cardLink" required>
+
+                <label for="cardDepartments">Отделы:</label>
+                    <select id="cardDepartments" name="cardDepartments" multiple required>
+                        <option value="all">Всі відділи</option>
+                        <option value="accounting">Бухгалтерія</option>
+                        <option value="budget">Бюджетний відділ</option>
+                        <option value="sales">Відділ Продажу</option>
+                        <option value="pharmacy">Фарм Отдел</option>
+                        <option value="marketing">Маркетинг</option>
+                        <option value="external_service">Зовнішня служба</option>
+                        <option value="procurement">Відділ закупівель</option>
+                        <option value="finance">Фінансовий відділ</option>
+                        <option value="it">Відділ IT</option>
+                        <option value="hr">Відділ персоналу</option>
+                        <option value="quality_control">Відділ контролю якості</option>
+                        <option value="security">Відділ економ безпеки</option>
+                        <option value="management">Керівники</option>
+                    </select>
+
+                <button type="submit">Зберегти картку</button>
+            </form>
+            <div class="info">
+                <h2>Список карток</h2>
+                <ul id="cardList"></ul> <!-- Контейнер для списка карток -->
+            </div>
+        </div>
+        <script src="/js/admin.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const loginModal = document.getElementById('loginModal');
+                const mainContent = document.getElementById('mainContent');
+                const loginButton = document.getElementById('loginButton');
+                const errorMessage = document.getElementById('errorMessage');
+    
+                // Показать модальное окно
+                loginModal.style.display = 'flex';
+    
+                loginButton.addEventListener('click', function() {
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+    
+                    if (username === 'admin' && password === 'password123') {
+                        // Если логин и пароль верные, скрыть модальное окно и показать основной контент
+                        loginModal.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        localStorage.setItem('isLoggedIn', 'true');
+                    } else {
+                        // Показать сообщение об ошибке
+                        errorMessage.style.display = 'block';
+                    }
+                });
+    
+                // Проверяем статус авторизации в LocalStorage
+                if (localStorage.getItem('isLoggedIn') === 'true') {
+                    loginModal.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

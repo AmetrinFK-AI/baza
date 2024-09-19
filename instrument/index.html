@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інструменти Аметрин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <img src="img/logo.png" alt="logo">
+                </div>
+            </header>
+            <main>
+                <div class="about">
+                    <h1>Інструменти для роботи</h1>
+                    <p>Ця платформа створена для того, щоб автоматизувати та полегшити вашу роботу. Тут зібрані всі інструменти, які є в нашій компанії для роботи. Платформа постійно оновлюється і додаються все більше і більше інструментів для вашої комфортної роботи.</p>
+                    <p>З інструкцією щодо роботи з інструментами ви можете ознайомитися в самому низу сторінки.</p>
+                </div>
+                <div class="instrument">
+                    <h2 class="title">Інструменти</h2>
+                    <div class="card_wrapper">
+                        <div class="card card6">
+                            <h2>MyGPT</h2>
+                        </div>
+                        <div class="card card5">
+                            <h2>Библиотека Prompt</h2>
+                        </div>
+                    </div>
+                    <div id="modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-btn">&times;</span>
+                            <h2>MyGPT's</h2>
+                            <ul>
+                                <li>
+                                    <h3>Professional Marketer</h3>
+                                    <p>Бот який допомагає в вирішенні питань маркетингу та якісному створенні маркетинг стратегій.</p>
+                                    <a href="https://chatgpt.com/g/g-4UxoAxU2R-professional-marketer" target="_blank">Посилання на бота</a>
+                                </li>
+                                <li>
+                                    <h3>OIT Helper</h3>
+                                    <p>Бот який допомагає в вирішенні різнопланових питань на такі теми: Python, Mikrotik, ATC, WinServ, Powershell, LinuxServ.</p>
+                                    <a href="https://chatgpt.com/g/g-GKzRwhGIt-oit-helper" target="_blank">Посилання на бота</a>
+                                </li>
+                                <li>
+                                    <h3>ТЗ Helper</h3>
+                                    <p>Бот який допомагає користувачу створити якісне технічне завдання для спеціаліста 1с або системного адміністрування.</p>
+                                    <a href="https://chatgpt.com/g/g-g2zc0YkSX-tz-helper" target="_blank">Посилання на бота</a>
+                                </li>
+                                <li>
+                                    <h3>English Talk Sensei</h3>
+                                    <p>Бот який допомагає покращувати навички розмовного англійського.</p>
+                                    <a href="https://chatgpt.com/g/g-E4vugCOLc-english-talk-sensei" target="_blank">Посилання на бота</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="footer_wrapper">
+                    <h2><a href="#">Інструкція по всім інструментам (натисни мене)</a></h2>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <button onclick="goBack()" class="back-button">Назад</button>
+    <script>
+        function goBack() {
+            window.location.href = "../index.html"; // Возвращение на главную страницу
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
