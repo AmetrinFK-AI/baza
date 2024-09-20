@@ -1,0 +1,26 @@
+name: Deploy to Local Server
+
+on:
+  push:
+    branches:
+      - main  # Укажите вашу основную ветку
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to server
+      run: |
+        rsync -avz --delete ./ user@192.168.3.228:/home/oit/baza
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
