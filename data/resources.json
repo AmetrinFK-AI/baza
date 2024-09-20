@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "name": "Professional Marketer",
+    "description": "Бот який допомагає в вирішенні питань маркетингу та якісному створенні маркетинг стратегій.",
+    "link": "https://chatgpt.com/g/g-4UxoAxU2R-professional-marketer",
+    "departments": [
+      "marketing"
+    ]
+  },
+  {
+    "name": "OIT Helper",
+    "description": "Бот який допомагає в вирішенні різнопланових питань на такі теми: Python, Mikrotik, ATC, WinServ, Powershell, LinuxServ.",
+    "link": "https://chatgpt.com/g/g-GKzRwhGIt-oit-helper",
+    "departments": [
+      "it"
+    ]
+  },
+  {
+    "name": "English Talk Sensei",
+    "description": "Бот який допомагає покращувати навички розмовного англійського.",
+    "link": "https://chatgpt.com/g/g-E4vugCOLc-english-talk-sensei",
+    "departments": [
+      "accounting",
+      "budget",
+      "development",
+      "tender",
+      "service",
+      "sales",
+      "pharmacy",
+      "marketing",
+      "external_service",
+      "procurement",
+      "finance",
+      "it",
+      "hr",
+      "quality_control",
+      "security",
+      "management"
+    ]
+  },
+  {
+    "name": "TЗ Helper",
+    "description": "Бот який допомагає покращувати написання тз",
+    "link": "https://chatgpt.com/g/g-eZr6HXjn4-tz-helper",
+    "departments": [
+      "accounting",
+      "budget",
+      "development",
+      "tender",
+      "service",
+      "sales",
+      "pharmacy",
+      "marketing",
+      "external_service",
+      "procurement",
+      "finance",
+      "it",
+      "hr",
+      "quality_control",
+      "security",
+      "management"
+    ]
+  },
+  {
+    "name": "Рекрутер бот",
+    "description": "Бот який допомагає у рекрутингу",
+    "link": "https://chatgpt.com/g/g-lagFooPJR-recruiter",
+    "departments": [
+      "hr"
+    ]
+  }
+]

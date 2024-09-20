@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "Logist_App",
+    "link": "http://192.168.3.228:5055/",
+    "departments": [
+      "quality_control"
+    ]
+  }
+]
