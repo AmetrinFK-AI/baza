@@ -5,5 +5,56 @@
     "departments": [
       "quality_control"
     ]
+  },
+  {
+    "name": "Відсутні",
+    "link": "http://192.168.3.228:5000/",
+    "departments": [
+      "accounting",
+      "budget",
+      "development",
+      "tender",
+      "service",
+      "sales",
+      "pharmacy",
+      "marketing",
+      "external_service",
+      "procurement",
+      "finance",
+      "it",
+      "hr",
+      "quality_control",
+      "security",
+      "management"
+    ]
+  },
+  {
+    "name": "Video Transcription",
+    "link": "http://192.168.3.228:1024/",
+    "departments": [
+      "accounting",
+      "budget",
+      "development",
+      "tender",
+      "service",
+      "sales",
+      "pharmacy",
+      "marketing",
+      "external_service",
+      "procurement",
+      "finance",
+      "it",
+      "hr",
+      "quality_control",
+      "security",
+      "management"
+    ]
+  },
+  {
+    "name": "Обробка \"Оптово- відпускних цін\"",
+    "link": "http://192.168.3.228:9100/",
+    "departments": [
+      "budget"
+    ]
   }
 ]

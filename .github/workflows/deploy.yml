@@ -22,7 +22,7 @@ jobs:
       run: |
         ssh oit@192.168.3.228 '
           cd /home/oit/baza && \
-          git pull origin main && \
+          git push origin main && \
           fuser -k 3021/tcp || true && \  # Убивает процесс на порту 3021
           nohup node server.js &           # Запускает сервер заново в фоновом режиме
         '

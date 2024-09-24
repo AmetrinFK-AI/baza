@@ -570,5 +570,13 @@
       "security",
       "management"
     ]
+  },
+  {
+    "name": "TestPrompt-1",
+    "text": "admin driving",
+    "category": "Робота з постачальниками",
+    "departments": [
+      "procurement"
+    ]
   }
 ]
