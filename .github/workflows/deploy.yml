@@ -18,16 +18,12 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Update repository and restart Node.js app
+    - name: Deploy to server
       run: |
-        ssh oit@192.168.3.228 '
-          cd /home/oit/baza && \
-          git push origin main && \
-          fuser -k 3021/tcp || true && \  # Убивает процесс на порту 3021
-          nohup node server.js &           # Запускает сервер заново в фоновом режиме
-        '
+        rsync -avz --delete ./ user@192.168.3.228:/home/oit/baza
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
 
 
 
