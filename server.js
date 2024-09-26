@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3022;
+const PORT = 3021;
 
 app.use(express.json());
 app.use(express.static(__dirname));
